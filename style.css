@@ -1,0 +1,53 @@
+/* Global dark background */
+body {
+    background: linear-gradient(135deg, #0b515c, #062d33);
+    color: #e0e0e0;  /* light text for readability */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Content area */
+.container, .main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5 {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Paragraphs & text */
+p {
+    color: #d3d3d3;
+    line-height: 1.6;
+}
+
+/* Buttons */
+.btn {
+    background: #0e6c79;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background: #1194a6;
+    transform: translateY(-2px);
+}
+
+/* Card or box styles */
+.card {
+    background: #103940;
+    border: 1px solid #0e6c79;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    margin-bottom: 20px;
+}

@@ -1,0 +1,91 @@
+/* Login form wrapper */
+.login-form {
+    margin: 90px auto 0;
+    width: 360px;
+    padding: 30px;
+    background: #fffef7;              /* soft yellow-ish card */
+    border: 1px solid #f1c40f;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;              /* centers children */
+    text-align: center;
+}
+
+/* Title */
+.login-form h3 {
+    color: #d4a017;
+    font-weight: 700;
+    margin: 0 0 22px 0;
+}
+
+/* Group wraps each input and centers it */
+.login-form .form-group {
+    width: 100%;
+    display: flex;
+    justify-content: center;          /* centers input box */
+    margin-bottom: 16px;
+}
+
+/* Input box itself: centered + consistent width */
+.login-form .form-control {
+    max-width: 280px;                 /* keep inputs narrower than card */
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    border: 1px solid #f9d648;
+    border-radius: 8px;
+    background: #fff;
+    text-align: center;               /* centers placeholder & typed text */
+    transition: 0.3s;
+}
+
+.login-form .form-control:focus {
+    border-color: #ffca28;
+    box-shadow: 0 0 6px rgba(255, 202, 40, 0.5);
+    outline: none;
+}
+
+/* Button centered, same width as inputs */
+.login-form .btn {
+    max-width: 280px;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    background: #f1c40f;
+    color: #333;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 6px;
+}
+
+.login-form .btn:hover {
+    background: #ffb300;
+    transform: translateY(-1px);
+}
+
+/* Error alert under button, aligned to center width */
+.login-form .alert {
+    margin-top: 12px;
+    width: 100%;
+    max-width: 280px;
+    padding: 10px;
+    border-radius: 8px;
+    background: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+    font-weight: 500;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .login-form {
+        width: 92%;
+        padding: 22px;
+        margin-top: 70px;
+    }
+}

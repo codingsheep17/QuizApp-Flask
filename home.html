@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+{%block css_tag%}
+<link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='quiz.css')}}">
+{%endblock%}
+
+{%block title%}Home - Quiz App{%endblock%}
+
+{% block navbar %}
+<nav>
+    <h1>Quiz App</h1>
+    <ul class="main-links">
+        <li><a href="{{url_for('home')}}" style="color: #ffeb3b; font-weight: 600;">Home</a></li>
+        <li><a href="{{url_for('about')}}">About</a></li>
+        <li><a href="{{url_for('history')}}">History</a></li>
+        <li><a href="{{url_for('submitqa')}}">Submit</a></li>
+        <li><a href="{{url_for('logout')}}">Logout</a></li>
+    </ul>
+</nav>
+{%endblock%}
+
+{%block body%}
+{% if question is not defined or not question %}
+<div class="quiz-setup-box">
+    <h2>Start Your Quiz</h2>
+    {% if message %}
+    <div class="alert">{{ message }}</div>
+    {% endif %}
+    <form method="post" action="{{ url_for('quiz') }}" class="quiz-setup-form">
+        <label for="category_menu">Select Category:</label>
+        <select id="category_menu" name="category_menu" required>
+            <option value="" disabled selected>Choose Category</option>
+            <option value="general">General Knowledge</option>
+            <option value="games">Video Games</option>
+            <option value="films">Films</option>
+            <option value="computer">Computer Sciences</option>
+            <option value="sports">Sports</option>
+        </select>
+
+        <label for="num_questions">Number of Questions:</label>
+        <input type="range" id="num_questions" name="num_questions" min="5" max="60" value="10"
+            oninput="this.nextElementSibling.value = this.value">
+        <output>10</output>
+
+        <input type="submit" value="Start Quiz">
+    </form>
+</div>
+
+{% elif finished %}
+<div class="quiz-container">
+    <h2>Quiz Finished 🎉</h2>
+    <p class="quiz-result">Your score: {{ score }}</p>
+</div>
+
+{% else %}
+<div class="quiz-container">
+    <h2>Quiz Time 🧠</h2>
+    {% if message %}
+    <div class="quiz-message">{{ message }}</div>
+    {% endif %}
+    <div class="question-box">
+        <h3>Q{{ current_index + 1 }}: {{ question | safe }}</h3>
+        <form method="POST" action="{{ url_for('quiz') }}">
+            {% for opt in options %}
+            <label class="option">
+                <input type="radio" name="answer" value="{{ opt }}" required>
+                <span>{{ opt | safe }}</span>
+            </label>
+            {% endfor %}
+            <button type="submit" class="submit-btn">Next</button>
+        </form>
+    </div>
+    <p class="score">Score: {{ score }}</p>
+</div>
+{% endif %}
+{%endblock%}

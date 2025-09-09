@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{%block css_tag%}
+<link rel="stylesheet" href="{{url_for('static', filename='submit.css')}}"> {%endblock%}
+
+{%block title%}Submit - share with us{%endblock%}
+
+{%block navbar%}
+<nav>
+    <h1>Quiz App</h1>
+    <ul class="main-links">
+        <li><a href="{{url_for('home')}}">Home</a></li>
+        <li><a href="{{url_for('about')}}">About</a></li>
+        <li><a href="{{url_for('history')}}">History</a></li>
+        <li><a href="{{url_for('submitqa')}}" style="color: #ffeb3b; font-weight: 600;">Submit</a></li>
+        <li><a href="{{url_for('logout')}}">Logout</a></li>
+    </ul>
+</nav>
+{%endblock%}
+
+{%block body%}
+<div class="form-container">
+    <h2>Submit Question</h2>
+    <form method="post" class="submit-form">
+        <input type="text" name="submitter_name" id="name" maxlength="100" placeholder="Your Name" required>
+        <input type="text" name="submitted_question" id="question" placeholder="Your Question" required>
+        <input type="text" name="submitted_options" id="options" placeholder="Options (optional)">
+        <input type="submit" value="Submit">
+        {% if message %}
+        <div class="alert" role="alert">
+            {{ message }}
+        </div>
+        {% endif %}
+    </form>
+</div>
+{%endblock%}

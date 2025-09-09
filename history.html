@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+{%block css_tag%}
+<link rel="stylesheet" href="{{url_for('static', filename='history.css')}}">{%endblock%}
+{%block title%}History - Recent Activity{%endblock%}
+
+{%block navbar%}
+<nav>
+    <h1>Quiz App</h1>
+    <ul class="main-links">
+        <li><a href="{{url_for('home')}}">Home</a></li>
+        <li><a href="{{url_for('about')}}">About</a></li>
+        <li><a href="{{url_for('history')}}" style="color: #ffeb3b; font-weight: 600;">History</a></li>
+        <li><a href="{{url_for('submitqa')}}">Submit</a></li>
+        <li><a href="{{url_for('logout')}}">Logout</a></li>
+    </ul>
+</nav>
+{%endblock%}
+
+{%block body%}
+<div class="history-box">
+    <h2>📜 Quiz History</h2>
+
+    {% if history %}
+    <table>
+        <thead>
+            <tr>
+                <th>Sr. No</th>
+                <th>Category</th>
+                <th>Score</th>
+                <th>Finished At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for attempt in history %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ attempt[0] }}</td>
+                <td>{{ attempt[1] }}</td>
+                <td>{{ attempt[2] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="no-history">No quiz history yet. Try a quiz 🎯</p>
+    {% endif %}
+
+    <div class="back-btn">
+        <a href="{{ url_for('home') }}">⬅ Back to Home</a>
+    </div>
+</div>
+{%endblock%}

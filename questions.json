@@ -1,0 +1,17 @@
+[
+    {
+        "name": "haseeb",
+        "questions": "what is the family members name ",
+        "options": "1: Haseeb, 2: None, 3: Mama, 4: Papa"
+    },
+    {
+        "name": "hello guy",
+        "questions": "Why the world so strange?",
+        "options": "1: IDK, 2: WHY?, 3: Prefer not to say, 4: No"
+    },
+    {
+        "name": "hehe guy",
+        "questions": "what is your dream country",
+        "options": "1: Japan, 2: USA, 3: UK, 4: Ireland"
+    }
+]
