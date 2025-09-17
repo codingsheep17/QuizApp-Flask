@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{%block title%}SignUp - Register Now{%endblock%}
+
+{%block css_tag%}
+<link rel="stylesheet" href="{{url_for('static', filename='navbar.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='log.css')}}">
+{%endblock%}
+
+{%block navbar%}
+<nav>
+    <h1>Quiz App</h1>
+    <ul class="auth-links">
+        <li><a href="{{url_for('login')}}">Login</a></li>
+    </ul>
+</nav>
+{%endblock%}
+
+{%block body%}
+<!-- MAIN LOGIN FORM BODY HERE -->
+<form method="post" class="login-form">
+    <h3>SignUp</h3>
+    <div class="form-group">
+        <input type="text" class="form-control" name="username" placeholder="Username" required>
+    </div>
+    <div class="form-group">
+        <input type="email" class="form-control" name="email" placeholder="Email" required>
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" name="password" placeholder="Password" required>
+    </div>
+    <button type="submit" class="btn">SignUp</button>
+    {% if error %}
+    <div class="alert" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+</form>
+{%endblock%}
+
+{%block footer%}
+<!-- FOOTER HTML WILL COME HERE -->
+{%endblock%}
